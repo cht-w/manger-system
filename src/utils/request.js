@@ -76,8 +76,6 @@ function request(options) {
 //     }
 // })
 
-
-
 ['get', 'post', 'put', 'delete', 'patch'].forEach(item=> {
     request[item] = (url, data, options)=> {
         return request({
@@ -87,6 +85,14 @@ function request(options) {
             ...options
         })
     }
+})
+
+/**
+ * 调用方式二
+ * */
+
+request.get('/login', {name:'jack'}, {}).then(res=> {
+    console.log(res);
 })
 
 export default request;
