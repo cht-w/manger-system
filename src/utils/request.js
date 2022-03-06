@@ -91,8 +91,8 @@ function request(options) {
  * 调用方式二
  * */
 
-request.get('/login', {name:'jack'}, {}).then(res=> {
-    console.log(res);
-})
+// request.get('/login', {name:'jack'}, {}).then(res=> {
+//     console.log(res);
+// })
 
 export default request;
