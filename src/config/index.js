@@ -6,7 +6,7 @@ const env = import.meta.env.MODE || 'pord';
 const EnvConfig = {
     dev: {
         baseApi: '/',
-        mockApi: 'https://dog.ceo/api/breeds/image/random'
+        mockApi: 'https://www.fastmock.site/mock/c1c302e8baed9894c48c17e4738c092e/api/'
     },
     test: {
         baseApi: '',
