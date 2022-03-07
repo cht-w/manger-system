@@ -4,14 +4,17 @@
 
 const env = import.meta.env.MODE || 'pord';
 const EnvConfig = {
+    // 开发环境
     dev: {
-        baseApi: '/',
-        mockApi: 'https://www.fastmock.site/mock/c1c302e8baed9894c48c17e4738c092e/api/'
+        baseApi: '/api',
+        mockApi: './../../mockDev/'
     },
+    // 测试环境
     test: {
         baseApi: '',
         mockApi: ''
     },
+    // 生产环境
     pord: {
         baseApi: '',
         mockApi: ''
@@ -19,6 +22,6 @@ const EnvConfig = {
 }
 export default {
     env,
-    mock: true,
+    mock: false,
     ...EnvConfig[env]
 }

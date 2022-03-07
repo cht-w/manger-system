@@ -15,7 +15,6 @@ const service = axios.create({
 })
 
 // 请求拦截
-
 service.interceptors.request.use((req)=> {
     // TO-DO
     const headers = req.headers;
@@ -26,10 +25,8 @@ service.interceptors.request.use((req)=> {
 })
 
 // 响应拦截
-
 service.interceptors.response.use((res)=> {
     // TO-DO
-    console.log(res.data)
     const { code, data, msg } = res.data;
     if (code === 200) {
         // 请求成功，返回数据

@@ -1,7 +1,6 @@
 <template>
     <div>Login页面</div>
     <el-button @click="goHome">回首页</el-button>
-    <el-button>请求接口</el-button>
 </template>
 <script setup>
     // 使用vue3的钩子函数方式实现路由跳转
@@ -14,17 +13,17 @@
     const cxt = getCurrentInstance();
     console.log(cxt)
     // 方式一:
-    // cxt.appContext.config.globalProperties.$request({
-    //     method: 'get',
-    //     url: 'login',
-    //     data: {
-    //         name: 'jack'
-    //     }
-    // })
-    // 方式二：
-    cxt.appContext.config.globalProperties.$request.get('/login', {name:'jack'}, {}).then(res=> {
-        console.log(res);
+    cxt.appContext.config.globalProperties.$request({
+        method: 'get',
+        // url: 'imgList.json',
+        url: '/comments'
+    }).then(res=> {
+        console.log(res, '======')
     })
+    // 方式二：
+    // cxt.appContext.config.globalProperties.$request.get('/login', {name:'jack'}, {}).then(res=> {
+    //     console.log(res);
+    // })
 </script>
 
 <style scoped>
