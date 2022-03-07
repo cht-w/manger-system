@@ -1,5 +1,6 @@
 /**
- * 环境配置封装* 
+ * 环境配置封装
+ * @author haotian.chen
  */
 
 const env = import.meta.env.MODE || 'pord';

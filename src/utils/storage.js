@@ -1,5 +1,6 @@
 /**
  * Storage二次分装
+ * @author haotian.chan
  */
 import config from './../config'
 export default {
