@@ -8,4 +8,6 @@
   }
 </script>
 <style>
+  @import './assets/style/reset.css';
+  @import './assets/style/index.css';
 </style>
