@@ -1,13 +1,16 @@
 <template>
-    <div>welcome页面</div>
+  <div class="welcome">
+    <h1>欢迎来到主界面</h1>
     <router-link to="/login">去登陆</router-link>
+  </div>
 </template>
 <script>
-    export default {
-        name: "welcome"
-
-    }
+export default {
+  name: "welcome"
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.welcome {
+}
 </style>

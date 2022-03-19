@@ -21,8 +21,6 @@ const routes = [
                 path: '/login',
                 meta: { title: '登陆页面' },
                 component: ()=> import('@components/Login.vue')
-                // component: resolve => (require(["@components/Login.vue"], resolve))  不能使用
-                // import.meta.globEager
             }
         ]
     }

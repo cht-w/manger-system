@@ -1,10 +1,51 @@
 <template>
-    <div>Home页面</div>
-    <router-view></router-view>
+  <div class="basic-layout">
+    <div class="nav-side"></div>
+    <div class="content-right">
+      <div class="nav-top flex-between"></div>
+      <div class="wrapper">
+        <div class="main-page">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-    name: "home"
+name: "home"
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.basic-layout {
+  position: relative;
+  .nav-side {
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    background-color: #001529;
+    color: #fff;
+    overflow-y: auto;
+    transition: width 0.5s;
+  }
+  .content-right {
+    margin-left: 200px;
+    height: 100vh;
+    .nav-top {
+      height: 50px;
+      line-height: 50px;
+      padding: 0 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .wrapper {
+      background-color: #eef0f3;
+      padding: 20px;
+      height: calc(100vh - 50px);
+      .main-page {
+        background: #fff;
+        padding: 20px;
+        height: 100%;
+      }
+    }
+  }
+}
 </style>
