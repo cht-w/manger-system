@@ -17,9 +17,9 @@ export default defineConfig({
     cors: true,
     proxy: {
       '/api': {
-        target: 'https://jsonplaceholder.typicode.com/',	//实际请求地址
+        target: 'http://localhost:4000',	//实际请求地址
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        // rewrite: (path) => path.replace(/^\/api/, '')
       },
     }
   }

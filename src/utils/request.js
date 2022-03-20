@@ -32,7 +32,7 @@ service.interceptors.response.use((res) => {
   if (code === 200) {
     // 请求成功，返回数据
     return data;
-  } else if (code === 40001) {
+  } else if (code === 50001) {
     ElMessage.error(TOKEN_INVALID);
     // Token验证失败，跳转至登陆页面
     setTimeout(() => {
