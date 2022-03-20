@@ -9,8 +9,5 @@ export default {
   name: "welcome"
 }
 </script>
-
 <style lang="scss" scoped>
-.welcome {
-}
 </style>
