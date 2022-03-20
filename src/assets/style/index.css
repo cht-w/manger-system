@@ -50,6 +50,11 @@ html, body {
     display: flex;
     justify-content: center;
   }
+  .flex-center-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .tips{
     margin-left: 15px;
     color: #787878;
