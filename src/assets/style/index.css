@@ -58,6 +58,11 @@ html, body {
     align-items: center;
     justify-content: center;
   }
+  .flex-between-all{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .tips{
     margin-left: 15px;
     color: #787878;
