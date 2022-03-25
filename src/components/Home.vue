@@ -41,11 +41,11 @@
           <span class="bread">面包屑</span>
         </div>
         <div class="right-item flex-between-all">
-          <el-badge is-dot class="notice">
-            <el-icon><bell-filled /></el-icon>
+          <el-badge class="notice" :is-dot="notice">
+            <el-icon class="bell"><bell-filled /></el-icon>
           </el-badge>
           <div class="userInfo">
-            <el-dropdown>
+            <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link">
                 Admin
                 <el-icon class="el-icon--right">
@@ -54,8 +54,8 @@
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item>邮箱：</el-dropdown-item>
-                  <el-dropdown-item>退出：</el-dropdown-item>
+                  <el-dropdown-item command="email">邮箱：</el-dropdown-item>
+                  <el-dropdown-item command="logout">退出：</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
@@ -70,12 +70,55 @@
     </div>
   </div>
 </template>
-<script setup>
+<script>
 import { Setting, Location, BellFilled, ArrowDown } from '@element-plus/icons-vue'
-import { ref } from 'vue'
-const isCollapse = ref(false);
-const handleOpenOrClose = () => {
-  isCollapse.value = !isCollapse.value
+import { getCurrentInstance, ref, onMounted, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+export default {
+  components: {
+    Setting,
+    Location,
+    BellFilled,
+    ArrowDown
+  },
+  setup () {
+    const $router = useRouter()
+    const isCollapse = ref(false) // 控制菜单栏展开收起
+    const notice = ref(0) // 消息提示数量(如果大于0则有消息提示)
+    const { proxy } = getCurrentInstance();
+    const handleOpenOrClose = () => {
+      isCollapse.value = !isCollapse.value
+    }
+    onMounted(() => {
+      proxy.getNotice()
+      proxy.getMenuList()
+    })
+    // 获取消息提示数量
+    const getNotice = () => {
+      const params = {
+        userName: 'admin'
+      }
+      proxy.$api.notice(params).then(res => {
+        notice.value = res.notice
+        console.log(res)
+      })
+    }
+    // 退出功能实现
+    const handleCommand = (command) => {
+      if (command === 'logout') {
+        $router.push('/login')
+      }
+    }
+    // 获取菜单数量
+    const getMenuList = async () => { }
+    return {
+      isCollapse,
+      notice,
+      handleOpenOrClose,
+      handleCommand,
+      getNotice
+    }
+  }
 }
 </script>
 
@@ -143,6 +186,9 @@ const handleOpenOrClose = () => {
         .notice {
           line-height: 30px;
           margin-right: 30px;
+          .bell {
+            padding: 5px;
+          }
         }
         .userInfo {
           display: flex;
