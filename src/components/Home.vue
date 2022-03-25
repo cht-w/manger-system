@@ -41,7 +41,7 @@
           <span class="bread">面包屑</span>
         </div>
         <div class="right-item flex-between-all">
-          <el-badge class="notice" :is-dot="notice">
+          <el-badge class="notice" :is-dot="notice > 0 ? true : false">
             <el-icon class="bell"><bell-filled /></el-icon>
           </el-badge>
           <div class="userInfo">
@@ -116,7 +116,8 @@ export default {
       notice,
       handleOpenOrClose,
       handleCommand,
-      getNotice
+      getNotice,
+      getMenuList
     }
   }
 }
